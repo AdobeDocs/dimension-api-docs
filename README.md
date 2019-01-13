@@ -28,22 +28,22 @@
 # Examples
 <ul>
 	<li>
-		<a href="docs/Background.md">Background Examples</a>
+		<a href="examples/Background.md">Background Examples</a>
 	</li>
 	<li>
-		<a href="docs/Camera.md">Camera Examples</a>
+		<a href="examples/Camera.md">Camera Examples</a>
 	</li>
 	<li>
-		<a href="docs/Dn-To-GLB.md">Dn-To-GLB Example</a>
+		<a href="examples/Dn-To-GLB.md">Dn-To-GLB Example</a>
 	</li>
 	<li>
-		<a href="docs/Layer-Visibility.md">Layer-Visibility Examples</a>
+		<a href="examples/Layer-Visibility.md">Layer-Visibility Examples</a>
 	</li>
 	<li>
-		<a href="docs/Materials.md">Materials/Texture Examples</a>
+		<a href="examples/Materials.md">Materials/Texture Examples</a>
 	</li>
 	<li>
-		<a href="docs/Mesh-Transformation.md">Mesh Transformation Examples</a>
+		<a href="examples/Mesh-Transformation.md">Mesh Transformation Examples</a>
 	</li>
 </ul>
 
@@ -108,7 +108,7 @@ Using the token generated with the credentials process, substitute `$token` and 
 | variations[].render_settings.name | string | This is free formed, can be anything you want. |
 | variations[].render_settings.properties | array | holds the properties that you want to change in the base dn file |
 | variations[].render_settings.properties[].name | string | right now, it only supports `setPropertyValue`.  Other values TBD |
-| variations[].render_settings.properties[].property | string | The identifier of the element you would like to replace.  The identifier format is as follows `Scene/GROUP_NAME/NAME/PROPERTY/PROPERTY_TYPE/PROPERTY` or if your model is not part of a group `Scene/NAME/PROPERTY/PROPERTY_TYPE/PROPERTY` <br /><a href="docs/Materials.md">Materials Examples</a> or <a href="docs/Camera.md">Camera Examples</a>  |
+| variations[].render_settings.properties[].property | string | The identifier of the element you would like to replace.  The identifier format is as follows `Scene/GROUP_NAME/NAME/PROPERTY/PROPERTY_TYPE/PROPERTY` or if your model is not part of a group `Scene/NAME/PROPERTY/PROPERTY_TYPE/PROPERTY` <br /><a href="examples/Materials.md">Materials Examples</a> or <a href="examples/Camera.md">Camera Examples</a>  |
 | variations[].render_settings.properties[].value | hashmap | Properties of the variation asset and location of the asset |
 | variations[].render_settings.properties[].value.type | string | Current only supports `image`, `color`, `vector2D`, `vector3D`, `transform` |
 | variations[].render_settings.properties[].value.file | string | The Adobe Illustrator design to apply to the input model |
