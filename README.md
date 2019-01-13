@@ -5,7 +5,7 @@
 - [Adobe Dimension Cloud Rendering API](#adobe-dimension-cloud-rendering-api)
 - [Examples](#examples)
 - [Getting Started](#getting-started)
-	- [Login](#login)
+	- [Credentials](#credentials)
 	- [Workflow Automation Render](#workflow-automation-render)
 		- [Example Request](#example-request)
 		- [Example Output](#example-output)
@@ -13,12 +13,6 @@
 	- [Check status of renders](#check-status-of-renders)
 - [Example App Quick Start](#example-app-quick-start)
 	- [Requirements](#requirements)
-	- [REST API Documentation](#rest-api-documentation)
-		- [Login API - GET](#login-api-get)
-			- [Request syntax](#request-syntax)
-			- [Required Headers](#required-headers)
-			- [Response syntax](#response-syntax)
-			- [Examples](#examples)
 		- [Render Variation API - POST](#render-variation-api-post)
 			- [Request syntax](#request-syntax)
 			- [Required Headers](#required-headers)
@@ -58,6 +52,52 @@
 # Getting Started
 ## Credentials
 TBD
+
+## Workflow Automation Render
+Using the token generated with the `Login` API, substitute `$token` with your token.
+
+### Example Request
+ ```
+ curl -H "Authorization: Bearer $token" -X POST -v https://dncr.adobe.io/v1/render/variation -d \
+ '{
+  "input": "https://signed-url-GET-base-dn-file....",
+  "name": "test-variation",
+	"engine_type": "lantern",
+  "variations": [
+    {
+      "render_settings": {
+        "name": "test-variation-name",
+        "properties": [
+          {
+            "name": "setPropertyValue",
+            "property": "Scene/Beverage Can/Can/Materials/Can Material/Base Color",
+            "value": {
+              "type": "image",
+              "file": "https://signed-url-GET-variation-image..."
+            }
+          }
+        ],
+        "return_url": "https://signed-url-PUT-for-render-result...",
+        "preset": "preset-low",
+        "outputs": [
+          {
+            "pixel_depth": 16,
+            "output_format": "psd"
+          }
+        ]
+      }
+    }
+  ]
+}'
+```
+
+### Example Output
+```
+{
+  "id": [
+    "2c575577-30d6-4eb3-b7e5-988c94783f41"
+  ]
+}
 
 ### Parameters Details
 
@@ -171,55 +211,6 @@ node scripts/app.js --bucket BUCKET --region REGION --username USERNAME --passwo
 //Example
 node scripts/app.js --bucket adobe-bucket --region us-east-1 --username adobe-user --password MyPassword --example black
 
-```
-
-## REST API Documentation
-### Login API - GET
-Obtain token used to make calls to render APIs.
-
-#### Request syntax
-```
-Request Method: GET
-Authorization required: Username, Password, and X-Api-Key
-Endpoint: /login
-```
-#### Required Headers
-```
-username: username
-password: password
-x-api-key: client id assigned by Adobe.io admin console
-```
-
-#### Response syntax
-<ul>
-	<li>
-		A success response has status HTTP 200 (OK) and returns the requested token
-	</li>
-	<li>
-		A failure response has status HTTP 401 (Unauthorized) and returns JSON-formatted error information in the response body. The call fails if the username or password that authorizes the request is not present or is not valid.
-	</li>
-</ul>
-
-#### Examples
-Request
-```
-GET /login HTTP/2
-username: $username
-password: $password
-x-api-key: $adobe_client_id
-```
-Response
-```
-HTTP/2 200
-date: Mon, 26 Nov 2018 02:49:30 GMT
-content-type: text/html; charset=utf-8
-content-length: 928
-x-powered-by: Express
-access-control-allow-origin: *
-etag: W/"3a0-2ej+2wtZIs0gkZ3hdJ7R3zY9egI"
-{
-  "token": "eyJraWQiOiJxTH..."
-}
 ```
 
 ### Render Variation API - POST
