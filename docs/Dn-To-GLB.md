@@ -40,7 +40,7 @@ curl -X POST -H "Content-Type: application/json" -H "x-api-key: CLIENT_ID" -H "A
 ```
 ### Step 4 - Check Status
 ```
-curl -X GET -H "x-api-key: CLIENT_ID" -H "authorization: Bearer $token" 'https://dncr.adobe.io/v1/convert/fe21db0b-ffe0-4a8c-9464-ecda076e05e6'
+curl -X GET -H "x-api-key: CLIENT_ID" -H "authorization: Bearer $token" -H "x-api-key: $client_id" https://dncr.adobe.io/v1/convert/fe21db0b-ffe0-4a8c-9464-ecda076e05e6
 ```
 
 ## Upload Method Workflow
@@ -51,7 +51,7 @@ TBD
 The upload process is a 2 step process.  First, you will need to obtain a S3 signed URL from the conversion
 ```
 export token=<the token obtained in step 1>
-curl -H "Authorization: Bearer $token" -H "x-api-key: CLIENT_ID" -X GET  https://dncr.adobe.io/v1/upload
+curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X GET  https://dncr.adobe.io/v1/upload
 
 ##will return some thing like this
 {
@@ -81,7 +81,7 @@ To trigger the conversion job, you must first generate an presigned url, can be 
 
 Convert API
 ```
-curl -H "Authorization: Bearer $token" -H "x-api-key: CLIENT_ID" -H 'Content-Type: application/json' https://dncr.adobe.io/v1/convert -X POST -d '{
+curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -H 'Content-Type: application/json' https://dncr.adobe.io/v1/convert -X POST -d '{
   "src_path": "uploads/74a82fca-0e2b-4d2c-9b0d-1ca6ff02ef09",
   "output_path": "YOUR_GENERATED_PRESIGNED_URL",
   "filename": "hook.dn",
@@ -117,5 +117,5 @@ If the convert api call is successful, you'll get the following output to obtain
 ```
 ### Step 4 - Check Status
 ```
-curl -X GET -H "x-api-key: CLIENT_ID" -H "authorization: Bearer $token" 'https://dncr.adobe.io/v1/convert/fe21db0b-ffe0-4a8c-9464-ecda076e05e6'
+curl -X GET -H "x-api-key: $client_id" -H "authorization: Bearer $token" 'https://dncr.adobe.io/v1/convert/fe21db0b-ffe0-4a8c-9464-ecda076e05e6'
 ```

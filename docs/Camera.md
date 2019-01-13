@@ -3,7 +3,7 @@
 
 ### CameraRotation
 ```
-curl -H "Authorization: Bearer $token" -X POST -v https://dncr.adobe.io/v1/render/variation -d \
+curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X POST -v https://dncr.adobe.io/v1/render/variation -d \
 '{
  "input": "https://signed-url-GET-base-dn-file....",
  "name": "test-variation",
@@ -42,7 +42,7 @@ curl -H "Authorization: Bearer $token" -X POST -v https://dncr.adobe.io/v1/rende
 ### CameraTransformation
 Transform camera to the absolute position
 ```
-curl -H "Authorization: Bearer $token" -X POST https://dncr.adobe.io/v1/render/variation -d \
+curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X POST https://dncr.adobe.io/v1/render/variation -d \
 '{
   "input": "https://signed-url-GET-base-dn-file....",
   "name": "variation",

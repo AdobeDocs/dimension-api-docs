@@ -54,11 +54,11 @@
 TBD
 
 ## Workflow Automation Render
-Using the token generated with the `Login` API, substitute `$token` with your token.
+Using the token generated with the credentials process, substitute `$token` and `$client_id` with your token and client_id.
 
 ### Example Request
  ```
- curl -H "Authorization: Bearer $token" -X POST -v https://dncr.adobe.io/v1/render/variation -d \
+ curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X POST -v https://dncr.adobe.io/v1/render/variation -d \
  '{
   "input": "https://signed-url-GET-base-dn-file....",
   "name": "test-variation",
@@ -123,11 +123,11 @@ Using the token generated with the `Login` API, substitute `$token` with your to
 ## Check status of renders
 A request to render will return a list of job ids.  To check on the status, make the following call
 ```
-curl -H "Authorization: Bearer $token" -X GET https://dncr.adobe.io/v1/render/<JOB_ID>
+curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X GET https://dncr.adobe.io/v1/render/<JOB_ID>
 ```
 Example Request
 ```
-curl -H "Authorization: Bearer $token" -X GET https://dncr.adobe.io/v1/render/2c575577-30d6-4eb3-b7e5-988c94783f41
+curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X GET https://dncr.adobe.io/v1/render/2c575577-30d6-4eb3-b7e5-988c94783f41
 ```
 Example output
 ```
@@ -219,11 +219,12 @@ Submits a job for cloud rendering
 ```
 Request Method: POST
 Authorization required: token
+x-api-key required: client_id
 Endpoint: /v1/render/variation
 ```
 #### Required Headers
 ```
-x-api-key: client id assigned by Adobe.io admin console
+x-api-key: client_id
 Authorization: Bearer $token
 ```
 #### Response syntax
@@ -240,7 +241,7 @@ Authorization: Bearer $token
 Request
 ```
 POST /v1/render/variation HTTP/2
-x-api-key: $adobe_client_id
+x-api-key: $client_id
 Authorization: Bearer $token
 {
   "input": "https://signed-url-GET-base-dn-file....",
@@ -291,11 +292,12 @@ Check status for a render
 ```
 Request Method: GET
 Authorization required: token
+x-api-key required: client_id
 Endpoint: /v1/render/<job_id>
 ```
 #### Required Headers
 ```
-x-api-key: client id assigned by Adobe.io admin console
+x-api-key: client_id
 Authorization: Bearer $token
 ```
 
@@ -326,7 +328,7 @@ Authorization: Bearer $token
 Request
 ```
 GET /v1/render/2c575577-30d6-4eb3-b7e5-988c94783f41 HTTP/2
-x-api-key: $adobe_client_id
+x-api-key: $client_id
 Authorization: Bearer $token
 ```
 Response

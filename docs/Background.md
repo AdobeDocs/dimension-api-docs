@@ -3,7 +3,7 @@
 ### Example of rotating the camera against Y-axis from the origin or the Scene
 
 ```
-curl -H "Authorization: Bearer $token" -X POST https://dncr.adobe.io/v1/render/variation -d \
+curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X POST https://dncr.adobe.io/v1/render/variation -d \
 '{
   "input": "https://signed-url-GET-base-dn-file....",
   "name": "variation-name",
