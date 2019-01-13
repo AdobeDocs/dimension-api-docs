@@ -1,5 +1,4 @@
 # Adobe Dimension Cloud Rendering API
-
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Adobe Dimension Cloud Rendering API](#adobe-dimension-cloud-rendering-api)
@@ -26,7 +25,6 @@
 			- [Examples](#examples)
 
 <!-- /TOC -->
-
 # Examples
 <ul>
 	<li>
@@ -145,7 +143,7 @@ Example output
   "end_time": 1541125384097,
   "name": "test-variation-name",
   "pixel_depth": 16,
-  "user_id": "coca-cola",
+  "user_id": "test-user",
   "render_status_percentage": 100,
   "file_size": 12461228,
   "input": "https://s3-us-west-2.amazonaws.com/di3d-jotran-bucket/in.dn",
@@ -347,7 +345,7 @@ Response
   "end_time": 1541125384097,
   "name": "test-variation-name",
   "pixel_depth": 16,
-  "user_id": "coca-cola",
+  "user_id": "test-user",
   "render_status_percentage": 100,
   "file_size": 12461228,
   "input": "https://s3-us-west-2.amazonaws.com/di3d-jotran-bucket/in.dn",
