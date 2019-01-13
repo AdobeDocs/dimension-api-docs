@@ -18,18 +18,8 @@
 
 ## Client Storage Workflow
 
-### Step 1 - Login
-For this initial implementation, clients will be client-id, username and password.  The client-id, username and password will be used to acquire a token that will be used in all other calls.  Please contact Adobe Product and Program Managers to obtain credentials.
-
-```
-curl -H "x-api-key: CLIENT_ID" -X GET https://felicity-api.adobedice.com/login -H 'username: USERNAME' -H 'password: PASSWORD'
-```
-The token
-<ul>
-  <li>Is JWT format</li>
-  <li>Expires after 1 hour</li>
-  <li>The token will be used for all other API</li>
-</ul>
+### Step 1 - Credentials
+TBD
 
 ### Step 2 - Generate presinged URLs
 Adobe Dimension Conversion Service support AWS S3 Presigned URL and Dropbox Temporary links.  Other presigned URLs have not been tested.
@@ -54,18 +44,8 @@ curl -X GET -H "x-api-key: CLIENT_ID" -H "authorization: Bearer $token" 'https:/
 ```
 
 ## Upload Method Workflow
-### Step 1 - Login
-For this initial implementation, clients will be client-id, username and password.  The client-id, username and password will be used to acquire a token that will be used in all other calls.  Please contact Adobe Product and Program Managers to obtain credentials.
-
-```
-curl -H "x-api-key: CLIENT_ID" -X GET https://felicity-api.adobedice.com/login -H 'username: USERNAME' -H 'password: PASSWORD'
-```
-The token
-<ul>
-  <li>Is JWT format</li>
-  <li>Expires after 1 hour</li>
-  <li>The token will be used for all other API</li>
-</ul>
+### Step 1 - Credentials
+TBD
 
 ### Step 2 - Upload Dimension .dn file
 The upload process is a 2 step process.  First, you will need to obtain a S3 signed URL from the conversion
@@ -75,7 +55,7 @@ curl -H "Authorization: Bearer $token" -H "x-api-key: CLIENT_ID" -X GET  https:/
 
 ##will return some thing like this
 {
-  "url": "https://di3d-felicity-stage-us-east-1.s3-accelerate.amazonaws.com/uploads/8eaceedf-ed54-4345-91bb-edc658b13c97...",
+  "url": "https://di3d-dncr-stage-us-east-1.s3-accelerate.amazonaws.com/uploads/8eaceedf-ed54-4345-91bb-edc658b13c97...",
   "upload_path": "uploads/74a82fca-0e2b-4d2c-9b0d-1ca6ff02ef09"
 }
 ```

@@ -3,7 +3,7 @@
 ### Example of make one layer visible and invisible
 
 ```
-curl -H "Authorization: Bearer $token" -X POST -v https://felicity-api.adobedice.com/v1/render/variation -d \
+curl -H "Authorization: Bearer $token" -X POST -v https://dncr.adobe.io/v1/render/variation -d \
 '{
   "input": "https://signed-url-GET-base-dn-file....",
   "name": "test-variation",

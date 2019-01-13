@@ -56,70 +56,10 @@
 </ul>
 
 # Getting Started
-## Login
-In order to make any other REST API to Adobe DnCR, a token must be provided.  To obtain a token, execute the following call with `USERNAME` and `PASSWORD` (replace with the actual username and password provide by Adobe).
-
-Example Login
-```
-curl -X GET https://felicity-api.adobedice.com/login -H 'username: USERNAME' -H 'password: PASSWORD'
-```
-Example output
-```
-{
-  "token": "eyJraWQiOiJxTH..."
-}
-```
-This token will expire after 1 hour.  You can generate as many of these tokens each token will still be valid until it expires.
-
-## Workflow Automation Render
-Using the token generated with the `Login` API, substitute `$token` with your token.
-
-### Example Request
- ```
- curl -H "Authorization: Bearer $token" -X POST -v https://felicity-api.adobedice.com/v1/render/variation -d \
- '{
-  "input": "https://signed-url-GET-base-dn-file....",
-  "name": "test-variation",
-	"engine_type": "lantern",
-  "variations": [
-    {
-      "render_settings": {
-        "name": "test-variation-name",
-        "properties": [
-          {
-            "name": "setPropertyValue",
-            "property": "Scene/Beverage Can/Can/Materials/Can Material/Base Color",
-            "value": {
-              "type": "image",
-              "file": "https://signed-url-GET-variation-image..."
-            }
-          }
-        ],
-        "return_url": "https://signed-url-PUT-for-render-result...",
-        "preset": "preset-low",
-        "outputs": [
-          {
-            "pixel_depth": 16,
-            "output_format": "psd"
-          }
-        ]
-      }
-    }
-  ]
-}'
-```
-
-### Example Output
-```
-{
-  "id": [
-    "2c575577-30d6-4eb3-b7e5-988c94783f41"
-  ]
-}
-```
+## Credentials
+TBD
 
 ### Parameters Details
-
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
@@ -143,11 +83,11 @@ Using the token generated with the `Login` API, substitute `$token` with your to
 ## Check status of renders
 A request to render will return a list of job ids.  To check on the status, make the following call
 ```
-curl -H "Authorization: Bearer $token" -X GET https://felicity-api.adobedice.com/v1/render/<JOB_ID>
+curl -H "Authorization: Bearer $token" -X GET https://dncr.adobe.io/v1/render/<JOB_ID>
 ```
 Example Request
 ```
-curl -H "Authorization: Bearer $token" -X GET https://felicity-api.adobedice.com/v1/render/2c575577-30d6-4eb3-b7e5-988c94783f41
+curl -H "Authorization: Bearer $token" -X GET https://dncr.adobe.io/v1/render/2c575577-30d6-4eb3-b7e5-988c94783f41
 ```
 Example output
 ```
@@ -370,7 +310,7 @@ Authorization: Bearer $token
 
 #### Render status
 <ui>
-	<li>pending - submitted to felicity, waiting for job to be picked up</li>
+	<li>pending - submitted to dncr, waiting for job to be picked up</li>
 	<li>start_conversion - converter service has picked up the job</li>
 	<li>pull_dcx - pull dcx component from CCFiles</li>
 	<li>downloading - download files</li>

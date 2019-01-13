@@ -12,7 +12,7 @@ program
   .option('-b, --bucket [string]', 's3 bucket name')
   .option('-r, --region [string]', 'region of the s3 bucket', 'us-east-1')
   .option('-u, --username [string]', 'username')
-  .option('-p, --password [string]', 'password')
+  .option('-p, --password [string]', 'passwrod')
   .option('-e, --example [string]', 'example asset black, blue, green, red, yellow', 'black')
 
   .parse(process.argv);
@@ -103,9 +103,9 @@ async function start(){
   var password = program.password;
   var example = program.example;
 
-  var dncrURL = "https://felicity-api.adobedice.com"
-  var baseDnURL = "https://raw.githubusercontent.com/johnleetran/workflow-automation-docs/master/assets/base.dn"
-  var variationURL = "https://raw.githubusercontent.com/johnleetran/workflow-automation-docs/master/assets/" + example + ".psd";
+  var dncrURL = "https://dncr.adobe.io"
+  var baseDnURL = "https://raw.githubusercontent.com/adobe/dimension-api-docs/master/assets/base.dn"
+  var variationURL = "https://raw.githubusercontent.com/adobe/dimension-api-docs/master/assets/" + example + ".psd";
   try{
     console.log("Get S3 Signed URL");
     let outputURL = await getS3SignedURL(bucket, object_key, operation, region)
