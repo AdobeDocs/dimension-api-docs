@@ -96,6 +96,7 @@ Using the token generated with the credentials process, substitute `$token` and 
     "2c575577-30d6-4eb3-b7e5-988c94783f41"
   ]
 }
+```
 
 ### Parameters Details
 
