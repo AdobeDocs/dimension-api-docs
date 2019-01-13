@@ -1,0 +1,33 @@
+#change Texture Color
+curl -H "Authorization: Bearer $token" -X POST https://felicity-api.adobedice.com/v1/render/variation -d \
+'{
+  "input": "",
+  "name": "variation-name",
+  "engine_type": "lantern",
+  "variations": [
+    {
+      "render_settings": {
+        "name": "variation-name",
+        "properties": [
+          {
+            "name": "setPropertyValue",
+            "property": "",
+            "value": {
+                "type": "image",
+                "file": ""
+            }
+          }
+        ],
+        "des_path": "",
+			  "preset": "preset-low",
+        "outputs": [{
+          "pixel_depth": 16,
+          "output_format": "psd"
+        }]
+      }
+    }
+  ]
+}'
+
+#check status
+curl -H "Authorization: Bearer $token" -X GET https://felicity-api.adobedice.com/v1/render/<JOB_ID>
