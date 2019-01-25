@@ -56,7 +56,7 @@ Using the token generated with the credentials process, substitute `$token` and 
 
 ### Example Request
  ```
- curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X POST -v https://dncr.adobe.io/v1/render/variation -d \
+ curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X POST -v https://dncr.adobe.io/v1/variation/render -d \
  '{
   "input": "https://signed-url-GET-base-dn-file....",
   "name": "test-variation",
@@ -219,7 +219,7 @@ Submits a job for cloud rendering
 Request Method: POST
 Authorization required: token
 x-api-key required: client_id
-Endpoint: /v1/render/variation
+Endpoint: /v1/variation/render
 ```
 #### Required Headers
 ```
@@ -239,7 +239,7 @@ Authorization: Bearer $token
 #### Examples
 Request
 ```
-POST /v1/render/variation HTTP/2
+POST /v1/variation/render HTTP/2
 x-api-key: $client_id
 Authorization: Bearer $token
 {
