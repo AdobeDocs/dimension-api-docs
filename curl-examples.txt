@@ -1,5 +1,5 @@
 #change Texture Color
-curl -H "Authorization: Bearer $token" -X POST https://dncr.adobe.io/v1/render/variation -d \
+curl -H "Authorization: Bearer $token" -X POST https://dncr.adobe.io/v1/variation/render -d \
 '{
   "input": "",
   "name": "variation-name",
