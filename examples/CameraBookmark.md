@@ -12,18 +12,16 @@ curl -H "Authorization: Bearer $token" -H "x-api-key: $client_id" -X POST -v htt
    {
      "render_settings": {
        "name": "test-variation-name",
-       "bookmark_path": "/scenes/scene/render_camera_n3d4"
+       "bookmark_path": "/scenes/scene/render_camera_n3d4",
        "properties": [
-        {
-        	"name": "setPropertyValue",
-        	"property": "Camera/View Angle",
-        	"value": {
-        	    "type": "vector3D",
-        	    "x": 0.0,
-        	    "y": 180.0,
-        	    "z": 0.0
-        	}
-        }
+          {
+            "name": "setPropertyValue",
+            "property": "Scene/Beverage Can/Can/Materials/Can Material/Base Color",
+            "value": {
+              "type": "image",
+              "file": "https://signed-url-GET-variation-image..."
+            }
+          }
        ],
        "return_url": "https://signed-url-PUT-for-render-result...",
        "preset": "preset-low",
