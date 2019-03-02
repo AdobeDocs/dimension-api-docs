@@ -34,6 +34,9 @@
 		<a href="examples/Camera.md">Camera Examples</a>
 	</li>
 	<li>
+		<a href="examples/CameraBookmark.md">Camera Bookmark Examples</a>
+	</li>
+	<li>
 		<a href="examples/Dn-To-GLB.md">Dn-To-GLB Example</a>
 	</li>
 	<li>
